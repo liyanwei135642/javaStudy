@@ -36,10 +36,10 @@ git branch 分支名 --------创建分支 当前分支是哪个就是在哪个�
 git checkout 分支名------------切换分支
 git merge 分支名 将分支合并到当前分支
 git branch -d|D 分支名------删除分支
-git clone https://github.com/acheong08/ChatGPT.git 从远程仓库github下载到本地仓库
-git remote add PythonStudy https://github.com/liyanwei135642/PythonStudy.git ---添加远程仓库PythonStudy
+git clone https://github.com/liyanwei135642/javaStudy.git 从远程仓库github下载到本地仓库
+git remote add javaStudy https://github.com/liyanwei135642/javaStudy.git ---添加远程仓库PythonStudy
 git remote rm origin  ------删除已添加的远程仓库origin
-git push -u PythonStudy master ------PythonStudy 远程仓库名随便设置 master要上传的分支 -u 首次上传
+git push -u javaStudy master ------javaStudy 远程仓库名随便设置 master要上传的分支 -u 首次上传
 git push --force PythonStudy branch_name ------PythonStudy 远程仓库名随便设置 master要上传的分支 --force本地版本低于远程版本时强行推送
 push 上传密码失败 一共三次上传，第一次密码 第二次token 第三次还是token   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
 忘记token找回方法 setting->developer setting->person access token ->classic->全选
