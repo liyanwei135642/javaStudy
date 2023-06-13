@@ -77,11 +77,13 @@ public class FileStudy {
     static File[] test3(String dir){
         ArrayList<File> ret=new ArrayList<File>();
         File path = new File(dir);
+        ret.add(path);
         File[] files = path.listFiles();
         for (File f : files) {
-            ret.add(f);
             if(f.isDirectory()){
                 Collections.addAll(ret,test3(f.getAbsolutePath()));
+            }else{
+                ret.add(f);
             }
         }
         return ret.toArray(File[]::new);

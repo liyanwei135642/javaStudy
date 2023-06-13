@@ -1,5 +1,7 @@
 package com.lyw.study;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.*;
 
 public class CollectionStudy {
@@ -34,24 +36,21 @@ public class CollectionStudy {
 }
 
 
-class Student implements Comparable{
+class Student implements Comparable, Serializable {
+    private static final long serialVersionUID = -5081282907286734349L;
     private String name;
     private byte age;
 
-    public String getName() {
-        return name;
+    //transient 关键字表示 顺态属性 不会被序列化到本地文件
+    private transient String adress;
+
+    public Student() {
     }
 
-    public void setName(String name) {
+    public Student(String name, byte age, String adress) {
         this.name = name;
-    }
-
-    public byte getAge() {
-        return age;
-    }
-
-    public void setAge(byte age) {
         this.age = age;
+        this.adress = adress;
     }
 
     public Student(String name, byte age) {
@@ -59,14 +58,12 @@ class Student implements Comparable{
         this.age = age;
     }
 
-    public Student() {
-    }
-
     @Override
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", adress='" + adress + '\'' +
                 '}';
     }
 

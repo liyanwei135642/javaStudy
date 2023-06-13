@@ -7,51 +7,48 @@ import java.util.*;
  * @param <T>
  */
 public class MyRandomer<T> {
+
+
+    /**
+     * 根据权重随机获取姓名
+     * @param names 姓名数组
+     * @param wights 权重数组
+     * @return  姓名
+     */
+    public static Object getName(Object[] names,double[]wights){
+        double[]ds1=new double[wights.length];
+        ds1[0]=wights[0];
+        double total=wights[0];
+        for (int i = 1; i < wights.length; i++) {
+            ds1[i]=ds1[i-1]+wights[i];
+            total+=wights[i];
+        }
+        for (int i = 0; i < wights.length; i++) {
+            ds1[i]=1.0*ds1[i]/total;
+        }
+        double d=Math.random();
+        for (int i = 0; i < ds1.length; i++) {
+            if(ds1[i]>d){
+                return names[i];
+            }
+        }
+        return null;
+    }
+
+
     public static void main(String[] args){
-        MyRandomer<String> mr=new MyRandomer();
-        List<String>names=new ArrayList<>();
-        List<Integer>wights=new ArrayList<>();
-        Collections.addAll(names,"aaa","bbb","ccc","ddd");
-        Collections.addAll(wights,0,1,9,9);
-        System.out.println(mr.get(names,wights));
-    }
-
-    public MyRandomer() {
-        this.map=new HashMap<>();
-        this.arr=new ArrayList<>();
-        this.random=new Random();
-    }
-
-    private HashMap<Integer, ArrayList<T>> map;
-    private ArrayList<Integer> arr;
-    private Random random;
-    public  T get(List<T> list1, List<Integer>list2){
-        int n=list1.size();
-        if (n!=list2.size()){
-            return null;
-        }
-        for (int i = 0; i < list1.size(); i++) {
-            int k=list2.get(i);
-            T t=list1.get(i);
-            if(map.containsKey(k)){
-                map.get(k).add(t);
+        String[] names= {"aaa","bbb","ccc","ddd","eee"};
+        double[]wights={1,2,3,4,5};
+        TreeMap<String, Integer> map = new TreeMap<>();
+        for (int i = 0; i < 1000000; i++) {
+            String s=(String)getName(names, wights);
+            if(map.containsKey(s)){
+                map.put(s,map.get(s)+1);
             }else{
-                ArrayList<T> v = new ArrayList<>();
-                v.add(t);
-                map.put(k,v);
-            }
-
-        }
-        Set<Integer> keys = map.keySet();
-        for (Integer key : keys) {
-            int size = map.get(key).size();
-            for (int j = 0; j < key*size; j++) {
-                arr.add(key);
+                map.put(s,1);
             }
         }
-        int k1=random.nextInt(arr.size());
-        int k2=arr.get(k1);
-        ArrayList<T> ts = map.get(k2);
-        return ts.get(random.nextInt(ts.size()));
+        System.out.println(map);
     }
+
 }

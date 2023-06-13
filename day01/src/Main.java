@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        int a='q';
-        System.out.println((char)97);
+
+        System.out.println("123\\456\\89".replaceFirst("123\\\\456","aaa"));
     }
 }
