@@ -1,4 +1,4 @@
-package com.lyw.Net;
+package com.lyw.net;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

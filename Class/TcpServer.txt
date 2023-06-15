@@ -1,0 +1,9 @@
+com.lyw.net.TCPServer:
+构造方法1:	public com.lyw.net.TCPServer(int)
+构造方法2:	public com.lyw.net.TCPServer()
+成员变量1:	public int com.lyw.net.TCPServer.port
+成员方法1:	public static void com.lyw.net.TCPServer.main(java.lang.String[]) throws java.io.IOException
+成员方法2:	public void com.lyw.net.TCPServer.start() throws java.io.IOException
+
+...................
+

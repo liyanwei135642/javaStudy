@@ -1,10 +1,8 @@
-package com.lyw.Net;
+package com.lyw.net;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketAddress;
-import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * TCP服务器端学习
@@ -14,7 +12,7 @@ public class TCPServer {
         new TCPServer().start();
     }
 
-    private int port;
+    public  int port;
 
     public TCPServer() {
         this.port=51801;

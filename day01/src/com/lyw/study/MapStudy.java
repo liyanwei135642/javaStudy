@@ -30,7 +30,7 @@ public class MapStudy {
         TreeSet<Person> set = new TreeSet<>();
         Set<Character> keys = m.keySet();
         for (Character key : keys) {
-            set.add(new Person(key.toString(), m.get(key)));
+            set.add(new Person());
         }
         for (Person p : set) {
             System.out.println(p.name + "(" + p.age + ")");
@@ -48,33 +48,3 @@ public class MapStudy {
     }
 }
 
-class Person implements Comparable<Person>{
-     String name;
-     int age;
-
-
-    @Override
-    public int compareTo(Person o) {
-        int ret=o.age-this.age;
-        if(ret!=0){
-            return ret;
-        }
-        else{
-            return this.name.compareTo(o.name);
-        }
-
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-}

@@ -1,8 +1,7 @@
-package com.lyw.Net;
+package com.lyw.net;
 
 import java.io.*;
 import java.net.Socket;
-import java.rmi.server.ExportException;
 import java.util.Scanner;
 
 /**
