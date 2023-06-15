@@ -1,7 +1,6 @@
 package com.lyw.thread;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 /**
  * 多线程的第一种启动方式
@@ -41,19 +40,101 @@ import java.util.concurrent.FutureTask;
  *      3. 给方法加锁 private synchronized boolean task();
  *      4.StringBuilder 线程不安全  Stringbuffer 线程安全
  *      5.lock锁 Lock是个接口 要用它的实现类 ReentrantLock
+ *      6.线程只能启动一次 一旦执行完毕就是垃圾
+ * 等待唤醒机制
+ *      1.Object.wait() 让已经锁定Object的线程处于等待状态
+ *      2.Object.notify() 随机唤醒一个已经锁定Object的线程
+ *      3.Object.notifyAll() 唤醒所有已经锁定Object的线程
+ *      4.阻塞队列 自带锁 ArrayBlockingqueue 有限长度 LinkedBlockingQueue 无限长度
+ * 线程池技术
+ *      1.用 Executors 工具创建 无限线程池 public static ExecutorService newCachedThreadPool();
+ *      2.Executors.newCachedThreadPool()返回 ExecutorService 无限长度线程池对象
+ *      3.用 Executors 工具创建 有限线程池 public static ExecutorService newFixedThreadPool(int nThreads);
+ *      4.Executors.newFixedThreadPool(int nThreads) 返回 ExecutorService 有限长度线程池对象
+ *          1.获取线程池对象
+ *              ExecutorService pool1 = Executors.newCachedThreadPool();
+ *              ExecutorService pool2 = Executors.newFixedThreadPool(3)
+ *          2.提交任务
+ *              创建 Runable 接口的实现类 重写run()方法
+ *              提交任务 pool.submit(new MyRunable());
+ *          3.销毁线程池(一般服务器永久运行 不需要销毁线程池)
+ *              pool.shutdown();
+ *      5.创建自定义线程池
+ *          ThreadPoolExecutor pool = new ThreadPoolExecutor(
+ *                 3,//核心线程数量
+ *                 6,//最大线程数量
+ *                 60,//临时线程空闲时间的值
+ *                 TimeUnit.SECONDS,//临时线程空闲时间的单位
+ *                 new ArrayBlockingQueue<>(5),//存放任务的阻塞队列
+ *                 Executors.defaultThreadFactory(),//线程的产生方式
+ *                 new ThreadPoolExecutor.CallerRunsPolicy()//任务太多时的拒绝策略
+ *                 );
+ *             线程池一开始内部没有线程
+ *             当有任务进来以后才创建线程去执行任务
+ *             当任务超过核心线程数量时任务会放进阻塞队列
+ *             当任务超过阻塞队列上限时会触发临时线程
+ *             当任务继续增加会触发拒绝策略
+ *
+ *             线程池最大线程数的设置：
+ *                  计算密集型=最大并行数+1
+ *                  IO密集型=最大并行数*(计算时间+等待时间)/计算时间
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  *
  */
 public class Test {
+
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         //test1();
         //test2();
+        //test3();
+        //test4();
+        //获取线程池对象
+        //ExecutorService pool1 = Executors.newCachedThreadPool();
+        //ExecutorService pool2 = Executors.newFixedThreadPool(3);
+        //提交任务
+        //pool1.submit(new MyRunable());
+        //pool2.submit(new MyRunable());
+        //销毁线程池
+        //pool1.shutdown();
+        //pool2.shutdown();
+
+        //自定义线程池
+        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+                3,//核心线程数量
+                6,//最大线程数量
+                60,//临时线程空闲时间的值
+                TimeUnit.SECONDS,//临时线程空闲时间的单位
+                new ArrayBlockingQueue<>(5),//存放任务的阻塞队列
+                Executors.defaultThreadFactory(),//线程的产生方式
+                new ThreadPoolExecutor.CallerRunsPolicy()//任务太多时的拒绝策略
+        );
+        pool.submit(new MyRunable());
+    }
+
+    private static void test4() {
+        Customer[] cs=new Customer[1];
+        Producer[] ds=new Producer[1];
+        for (int i = 0; i < cs.length; i++) {
+            cs[i]=new Customer();
+            ds[i]=new Producer();
+            cs[i].start();
+            ds[i].start();
+        }
+    }
+
+    private static void test3() {
         int[] tickets={100};
         MyThread[] threads=new MyThread[10];
         for (MyThread thread : threads) {
             thread=new MyThread(tickets);
             thread.start();
         }
-
     }
 
     private static void test2() throws InterruptedException {
