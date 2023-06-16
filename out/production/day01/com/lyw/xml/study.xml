@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--第一行第一列必须写如上的文档声明-->
+<!--必须有一个如下的根标签 有且仅有一个根标签-->
+<!--    特殊字符 &lt &gt-->
+<!--    如果一定要写特殊字符也可以用右边的标签   <![CDATA[a>b]]>  -->
+<!--xml文件的解析工具api有多种 我们用的是 dom4j-1.6.1.jar -->
+<!--第一步 创建学生类 包含 id name age address-->
+<!--第二步 导入jar包 dom4j.1.6.1.jar-->
+<!--第三步 创建解析器(也可以用dom4j文档中的index.html的QuickStart条目创建)-->
+<!--第四步 通过解析器获取xml文档数据 得到Document对象-->
+<!--第五步 获得根节点元素对象-->
+<!--第六步 从根节点下查找其他子节点元素 读取数据-->
+<students>
+    <student id="001">
+        <name>liyanwei</name>
+        <age>32</age>
+        <address>山西</address>
+    </student>
+    <student id="002">
+        <name>muyonglian</name>
+        <age>29</age>
+        <address>上海</address>
+    </student>
+</students>
+

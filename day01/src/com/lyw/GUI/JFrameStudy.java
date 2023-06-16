@@ -1,4 +1,4 @@
-package com.lyw.study;
+package com.lyw.GUI;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -10,7 +10,9 @@ import java.util.Random;
 /**
  * 图形界面拼图游戏
  */
-public class WindowStudy extends JFrame implements ActionListener, MouseListener, KeyListener{
+public class JFrameStudy extends JFrame implements ActionListener, MouseListener, KeyListener{
+
+
     //窗口的宽度windowWidth 高度WindowHeight
     private  int windowWidth;
     private int windowHeight;
@@ -39,10 +41,10 @@ public class WindowStudy extends JFrame implements ActionListener, MouseListener
 
 
     public static void main(String[] args) {
-        WindowStudy mainFrame=new WindowStudy();
+        JFrameStudy mainFrame=new JFrameStudy();
     }
 
-    public WindowStudy() throws HeadlessException {
+    public JFrameStudy() throws HeadlessException {
         //初始化数据
         initData();
 
