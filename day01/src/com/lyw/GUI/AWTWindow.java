@@ -6,7 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * AWT图形化界面学习 创建window窗口
+ *  AWT图形化界面学习 创建window窗口
+ *  如果需要改变按钮的大小 最好将按钮的容器设置为FlowLayout
+ *  如果一容器使用了布局管理器，则该容器内的组件或容器（即该容器的下一级）应该使用setPreferredSize(new Dimension(w,h));来设置尺寸;
+ *  如果一容器是绝对布局，即setLayout(null)，则该容器内的组件或容器（即该容器的下一级）应该使用setSize(w,h));来设置尺寸。
  *
  */
 public class AWTWindow {
