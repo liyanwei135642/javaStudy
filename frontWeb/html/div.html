@@ -1,0 +1,81 @@
+<!-- 输入html自动补齐选择html:5 生成html文本基本格式-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>容器学习</title>
+</head>
+<body style="text-align: center;">
+    <!-- div 容器标签 其中id属性代表容器位置-->
+    <!-- 输入 div#top|main|bottpm 再按tab键 -->
+    <div id="top">
+
+        <a href="#bottom"
+            target="_self">
+            去到底部
+        </a>
+    </div>
+    <div id="main">
+        <p>
+            正文容器
+        </p>
+        <!--img 图片标签，单标签，内联元素，一列一列的排列在div当中，
+            src 属性 必填 图片位置可以本地图片也可以网络绝对地址，  
+            width|height 设置宽度和高度默认为原始像素，
+            title 光标移动到这里显示
+            alt 图片加载失败后的显示内容-->       
+        <img src="https://i0.hdslb.com/bfs/banner/c6ff807f5f2b3965b728abc93101e9cc69c21e1c.png@976w_550h_1c_!web-home-carousel-cover.webp"
+            alt="图片加载失败"
+            width="300px"
+            height="200"
+            title="来自网络">
+        &nbsp;&nbsp;
+        <img src="../img/3.jpg"
+            alt="图片加载失败"
+            width="300px"
+            height="200"
+            title="来自本地">
+        <br>
+        <p>
+            <br><br><br>主<br><br><br>体<br><br><br>区<br><br><br>域<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </p>
+
+    </div>
+    <div id="bottom">
+        <p>
+            底部容器
+        </p>
+        <!-- a 超链接标签,内联元素，一列一列的排列在div当中，
+            herf属性用于设置链接目标的URL必填 
+            target 属性用于设置打开方式 
+            默认当前窗口打开_self 新窗口打开_blank -->
+        <a href="https://i0.hdslb.com/bfs/banner/c6ff807f5f2b3965b728abc93101e9cc69c21e1c.png@976w_550h_1c_!web-home-carousel-cover.webp"
+            target="_blank">
+            点击我打开别的网页
+        </a>
+        &nbsp;&nbsp;
+        <a href="../img/10.jpg"
+            target="_blank">
+            点击我打开别的网页
+        </a>
+        <br>
+        <a href="https://www.baidu.com"
+            target="_blank">
+            百度
+        </a>
+        <a href="https://www.baidu.com"
+            target="_blank">
+            <img src="../img/6.jpg" 
+                 alt="图片加载失败"
+                 width="100">
+        </a>
+        <br>
+        <a href="#top"
+            target="_self">
+            回到顶部
+        </a>
+    </div>
+</body>
+</html>

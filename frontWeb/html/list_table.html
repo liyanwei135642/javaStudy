@@ -1,0 +1,149 @@
+<!-- 常规的结构体标签学习 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="text-align: center;">
+    <!-- ul 无序列表标签 默认实心圆圈 ul>li*4 直接生成四项的列表 -->
+    <ul style="text-align:left;color: rgb(255,0,0);">
+        <!-- li 列表项标签 -->
+        <li>
+            第一章
+            <ul style="color: rgb(98, 0, 255);">
+                <li>第一节</li>
+                <li>第二节</li>
+                <li>第三节</li>
+                <li>第四节</li>
+            </ul>
+        </li>
+        <li>
+            第二章
+            <ul style="color: rgb(166, 255, 0);">
+                <li>第一节</li>
+                <li>第二节</li>
+                <li>第三节</li>
+                <li>第四节</li>
+            </ul>
+        </li>
+    </ul>
+    <!-- ol有序列表标签 start属性设置起始值默认1，type属性设置数据类型可以I i a A 1，reversed属性设置序号反向-->
+    <ol reversed start="4" type="A" style="text-align:left;color: rgb(255,0,0);">
+        <!-- li 列表项标签 -->
+        <li>
+            第一章
+            <ol style="color: rgb(98, 0, 255);">
+                <li>第一节</li>
+                <li>第二节</li>
+                <li>第三节</li>
+                <li>第四节</li>
+            </ol>
+        </li>
+        <li>
+            第二章
+            <ol style="color: rgb(166, 255, 0);">
+                <li>第一节</li>
+                <li>第二节</li>
+                <li>第三节</li>
+                <li>第四节</li>
+            </ol>
+        </li>
+    </ol>
+    <!-- table 表格标签  table>tr*2>td*3 生成两行三列的表格
+        border属性设置边框，
+        cellspacing属性设置单元间距-->
+    <table border="1" cellspacing="0" style="background-color: chartreuse;">
+        <!-- caption 表格抬头标签 -->
+        <caption>学生管理系统表格</caption>
+        <!-- tr 表格行标签 -->
+        <tr>
+            <!-- td 表格单元标签,th 表格标题标签 -->
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>班级</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>32</td>
+            <td>03</td>
+        </tr>
+    </table>
+    <br><br>
+    <table border="0" cellspacing="0" style="background-color:rgb(0, 255, 106) ;" >
+        <caption style="background-color: rgb(0,255,106);">课程表</caption>
+        <tr style="border-bottom: 1px rgb(255,0,0) solid;">
+            <!-- colspan属性设置跨列，rowspan属性设置跨行 -->
+            <!-- 设置单元格底部边框红色实线 -->
+            <th style="border-bottom: 1px rgb(255,0,0) solid;" colspan="3">姓名</th>
+            <th style="border-bottom: 1px rgb(0,255,0) solid;" colspan="3">班级</th>
+        </tr>
+        <tr>
+            <td style="font-size: 32PX;">星期</td>
+            <td>一</td>
+            <td>二</td>
+            <td>三</td>
+            <td>四</td>
+            <td>五</td>
+        </tr>
+        <tr>
+            <td rowspan="4">上午</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="6">午休</td>
+        </tr>
+        <tr>
+            <td rowspan="3">下午</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+</body>
+</html>

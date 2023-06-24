@@ -59,8 +59,8 @@ public class IOStudy {
         //fileCopy3("myIo/test.txt","myIo/ccc.txt");
         //copyPath("day01","day02");
         //putOrPopPassword("myIo/ccc.txt",18);
-        //upZipDir("123.zip","day01/lib");
-        zipFile("day01","test");
+        upZipDir("123.zip","maven");
+        //zipFile("day01","test");
 
 
     }

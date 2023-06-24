@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AxiosStudy</title>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios-0.18.0.js"></script>
+</head>
+<body>
+    <div id="div1" style="text-align: center;">
+        <br><br><br><br>
+        <input type="button" value="获取数据" v-on:click="myGet()">
+        <br><br><br><br>
+        <input type="button" value="删除数据" v-on:click="myPost">
+        <input type="button" value="再删除数据" onclick="myPost()">
+        <br><br><br><br>
+        <table border="1" cellSpacing="0" width="100%">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>图像</th>
+                <th>性别</th>
+                <th>职位</th>
+                <th>入职时间</th>
+                <th>最后操作时间</th>
+            </tr>
+            <tr v-for="person in persons">
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td><img v-bind:src="person.image" width="70px" height="50px"></td>
+                <td><span v-if="person.gender==1">男</span><span v-else>女</span></td>
+                <td>{{person.job}}</td>
+                <td>{{person.entrydate}}</td>
+                <td>{{person.updatetime}}</td>
+            </tr>
+
+        </table>
+
+    </div>
+    
+</body>
+<script>
+    vue1=new Vue({
+        el:"#div1",
+        data:{
+            persons:[]
+        },
+        mounted() {
+            
+        },
+        methods: {
+            // myGet:function(){
+            //     axios.get("http://yapi.smart-xwork.cn/mock/169327/emp/list").then(result=>{
+            //     this.persons=result.data.data;
+            //     })
+            // },
+            myGet:function(){
+                axios.get("http://yapi.smart-xwork.cn/mock/266264/getById?id=3").then(result=>{
+                alert(result.data.name)
+                })
+            },
+            myPost:function(){
+                axios.post("http://yapi.smart-xwork.cn/mock/169327/emp/deleteById","id=1").then(result=>{
+                this.persons=[]
+                });
+            }
+        }
+            
+    })
+
+    function myPost(){
+        vue1.persons=[];
+    }
+    
+</script>
+
+</html>

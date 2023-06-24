@@ -1,0 +1,94 @@
+/* id选择器 #后面加标签元素的id值选择元素匹配样式 */
+/* #p1
+{
+    background-color: #ff0000;
+    color: #00ff00;
+    height: 50px;
+} */
+
+/* *代表所有元素 直接给所有元素匹配样式 */
+/* *
+{
+    margin: 0;
+    padding: 0;
+} */
+
+/* 直接用标签名选择元素匹配样式 
+p{}
+div{} 
+*/
+
+/* 类别选择器 .后面加类别 我们设置一些标签的 class="fontsize"*/
+/* .fontsize
+{
+    font-size: 30px;
+} */
+/* 组合选择 将标签选择 id选择 类别选择元素组合起来*/
+/* p,#div1,.fontsize
+{
+    color:#ff0000
+} */
+
+/* 子类选择 父类元素标签 空格 子类元素标签{} */
+/* p span
+{
+    color:rgb(255,0,0)
+} */
+
+/* 伪类选择器 */
+/* 为元素的不同状态分别设置样式 必须与基础选择器结合使用 */
+/* :link 超链接访问之前的状态 */
+/* :visited 超链接访问之后的状态 */
+/* :hover 光标划过时候的状态 */
+/* :active 鼠标点击不抬起时的状态 */
+/* :focus 焦点状态(文本框编辑时的状态) */
+
+/* div
+{
+    background-color: blue;
+    color: white;
+}
+div:hover
+{
+    background-color: black;
+    color: white;
+}
+a
+{
+    background-color: rgb(69, 161, 184);
+    color: #ffffff;
+}
+#link
+{
+    background-color: #0000ff;
+    color: #ffffff;
+}
+#link:hover
+{
+    background-color: #00ff00;
+    color: #ffffff;
+}
+a:active
+{
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+body
+{
+    text-align: center;
+}
+
+#text:hover
+{
+    background-color: #00ff00;
+}
+#text:focus
+{
+    background-color: #00ffff;
+} */
+ /* 元素的尺寸和颜色 */
+ /* 大小单位 像素px 
+    相对于父元素的尺寸 百分比 %  
+    相对单位 em  *
+    小程序单位 rpx/

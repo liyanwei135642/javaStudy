@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            font-size: 20px;
+        }
+        span
+        {
+            color: #f00;
+        }
+        #div
+        {
+            width: 600px;
+            border: 1px solid #ccc;
+            margin: auto;
+        }
+        #div1
+        {
+            padding: 5px 20px;
+            text-align: center;
+        }
+        input,button
+        {
+            display:inline-block;
+            padding: 5px 10px;
+            margin: 5px 20px;
+        }
+        textarea
+        {
+            display: inline-block;
+            width: 580px;
+            padding: 5px;
+            margin:4px;
+            height:300px;
+            border:1px solid #000;
+            background-color: #ddd;
+        }
+        #div3
+        {
+            margin: 4px;
+            padding: 5px;
+            height: 300px;
+            border:1px solid #000;
+            display: none;
+            background-color: #ddd;
+            overflow:auto;
+            word-wrap: break-word;
+            word-break: normal;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div">
+        <div id="div1">
+            <input id="text" type="text">
+            <button id="btn">搜索</button>
+        </div>
+        <div id="div2">
+            <textarea id="textarea" cols="30" rows="10"></textarea>
+        </div>
+        <p id="div3"></p>
+    </div>
+</body>
+<script>
+    textarea=document.getElementById("textarea");
+    div=document.getElementById("div3");
+    btn=document.getElementById("btn");
+    text=document.getElementById("text");
+    btn.onclick=function()
+    {
+        x=text.value;
+        if(x=="")
+        {
+            console.log("空字符查找");
+            return;
+        }
+        reg=new RegExp(x,"g");
+        str=textarea.value;
+        if(!reg.test(str))
+        {
+            console.log("没有匹配目标");
+            return;
+        }
+        html=str.replace(reg,"<span>"+x+"</span>")
+        div.innerHTML=html;
+        div.style.display="block";
+        textarea.style.display="none";
+    }
+    div.ondblclick=function()
+    {
+        div.style.display="none";
+        textarea.style.display="inline-block";
+    }
+</script>
+</html>

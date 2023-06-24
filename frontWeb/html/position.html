@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位学习</title>
+    <style>
+        /* 精灵图技术多张图片合成一张图片一次请求得到多张图片提高效率 */
+        body
+        {
+            background-image: url("../img/10.jpg");
+            /* repeat 图片大小不够时重复平铺 */
+            background-repeat:no-repeat;
+            /* 设置背景图片的位置 */
+            /* background-position:-100px -100px; */
+            /* 设置背景图片的大小 */
+            /* background-size: 100% 100%; */
+            border: 30px solid #ff0;
+            margin: 0;
+
+        }
+        div
+        {
+            position:relative;
+            top: 20px;
+            width: 800px;
+            height: 800px;
+            border: solid 10px rgb(50, 109, 58);
+            background-color: #f00;
+            margin: auto;
+        }
+        /* position 位置属性 可以选：
+                    相对位置 relative 相对于自己原始位置 不脱离文档流
+                    绝对位置 absolute 相对于自己最近的定位的祖先 脱离了文档流
+                    固定位置 fixed 相对于窗口 不跟随页面滚动*/
+        /* 伪类选择:nth-child(n) 所有div集合中第n个div */
+        /* div:nth-child(2)
+        {
+            position:relative;
+            left: 10px;
+        }
+        div:nth-child(3)
+        {
+            position:fixed;
+            bottom: 10px;
+        } */
+        img:nth-child(1)
+        {
+            position:absolute;
+            left: 50px;
+            top: 50px;
+        }img:nth-child(2)
+        {
+            position:absolute;
+            left: 200px;
+            top: 200px;
+        }
+        img:nth-child(1):hover
+        {
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../img/10.jpg" alt="">
+        <img src="../img/6.jpg" alt="">
+    </div>
+</body>
+</html>

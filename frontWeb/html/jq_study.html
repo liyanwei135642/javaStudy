@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div4
+        {
+            width: 300px;
+            margin: auto;
+            position: absolute;
+            left: 20px;
+            top: 20px;
+        }
+    </style>
+    <!-- 导入jquery文件 -->
+    <script src="../js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="div4" class="study">JQuery学习
+        <div id="div0"> 我是第一个子元素</div>
+        <div id="div1"> 我是第二个子元素</div>
+        <div id="div2"> 我是第三个子元素</div>
+        <div id="div3"> 我是第四个子元素</div>
+    </div>
+    <input type="checkbox" id="check" checked>婚否
+    <button>隐藏</button>
+    <script>
+        // JQ获取html元素的方法是 $(CSS元素选择器);
+        //  JS获取html元素的方法：
+        // console.log(document.getElementsByTagName("div"));
+        // JQ对象与JS对象互相转换：
+        // $(JS对象) JS转JQ
+        // JS[0]或者JS.get(0) JQ转JS 因为JQ对象是列表 第一个元素是原生JSduixiang
+        
+        // JQ元素选择器方法：
+        // 基础选择器
+        // 标签选择器 $("tagName");
+        // id选择器 $("#id");
+        // 类别选择器 $(".class");
+        // 群组选择器 $("selecter1,selecter2,....");
+
+        // 层级选择器
+        // 后代选择器 $("div .c1");
+        // 子代选择器 $("div>span");
+        // 相邻兄弟选择器 $("div+p"); 选择p元素;
+        // 通用兄弟选择器 $("div~p"); 选择div之后所有的p元素;
+
+        // 过滤选择器
+        // $("div:first"); 选择第一个div元素
+        // $("div:last"); 选择最后一个div元素
+        // $("div:odd"); 选择奇数下标的div元素
+        // $("div:even"); 选择偶数下标的div元素
+        // $("div:eq(index)"); 选择等于下标的div元素
+        // $("div:lt(index)"); 选择小于下标的div元素
+        // $("div:gt(index)"); 选择大于下标的div元素
+        // $("div:not(#div1)"); 选择除了括号里的以外的所有div元素
+
+        // 属性选择器
+        // $("[attrname]") 选择包含属性名的元素
+        // $("[attrname=value]") 选择属性值等于相应值的元素
+        // $("[attrname^=value]") 选择属性值开头等于相应值的元素
+        // $("[attrname$=value]") 选择属性值结尾等于相应值的元素
+        // $("[attrname*=value]") 选择属性值包含等于相应值的元素
+        
+        // 子元素过滤选择器
+        // $("div:first-child") 选择第一个子元素
+        // $("div:last-child") 选择最后一个子元素
+        // $("div:nth-child(n)") 选择第n个子元素
+
+        // 操作元素内容：
+        // html() 无参数代表获取元素内容 有参数改变元素内容 可以识别html标签
+        // text() 无参数代表获取元素内容 有参数改变元素内容 不可以识别html标签
+        // val() 无参数代表获取表单控件的value值 有参数改变表单控件的value值
+
+        // 操作元素属性：
+        // attr("attrname","value") 一个参数是读 两个是写
+        // prop("attrname","value") 一个参数是读 两个是写 和attr()一样 对于表单控件有区别
+        // removeAttr("attrname") 取消属性名对应的属性
+        // add("attrname") 添加属性名对应的属性
+
+        // 样式操作：
+        // JQelement.css("attrname","value") 一个参数是读 两个参数是写 参数一样式属性名 参数二样式属性值
+        
+        // parent() 返回父元素
+        // parents()/parents("selecter") 返回所有或者满足选择器的祖先元素
+        // children()/children("selecter") 返回所有或者满足选择器的直接子元素
+        // find()/find("selecter") 返回所有或者满足选择器的后代元素
+        // next()/next("selecter") 返回下一个或者满足选择器的下一个兄弟元素
+        // prev()/prev("selecter") 返回上一个或者满足选择器的上一个兄弟元素
+        // siblings()/siblings("selecter") 返回所有或者满足选择器的兄弟元素
+        // 创建元素对象：
+        // $("<div></div>");创建div元素对象
+        // obj.append(newobj);obj尾插一个新的子元素对象
+        // obj.prepend(newobj);obj头插一个新的子元素对象
+        // obj.after(newobj);obj后面添加一个新的兄弟元素对象
+        // obj.behind(newobj);obj前面添加一个新的兄弟元素对象
+        // 添加子元素也可以通过直接改变html内容来实现 如下：
+        // obj=$("#div1");
+        // html=obj.html();
+        // obj.html(html+"<div id='div2'>我是第二个div</div>");
+        // $("#div2").css("backgroundColor","#f00");
+        // obj.css("width","300px").css("height","300px").css(
+        // "backgroundColor","#f00");
+        // obj.remove() //删除obj元素以及所有的子元素
+        // obj.empty() //删除obj元素所有的子元素
+        // console.log($("#div4").children(":gt(1)").css("backgroundColor","#0f0"));
+        // obj.hide(time,function)设置obj对象影藏(缩小)，time是隐藏时间 function是隐藏以后执行的函数
+        // obj.show(time,function)设置obj对象显示(放大)，time是隐藏时间 function是隐藏以后执行的函数
+        // obj.fadeOut(time,function)设置obj对象隐藏(淡隐)，time是隐藏时间 function是隐藏以后执行的函数
+        // obj.fadeIn(time,function)设置obj对象显示(淡现)，time是隐藏时间 function是隐藏以后执行的函数
+        // obj.slideUp(time,function)设置obj对象显示(上推)，time是隐藏时间 function是隐藏以后执行的函数
+        // obj.slideDown(time,function)设置obj对象显示(下拉)，time是隐藏时间 function是隐藏以后执行的函数
+        // obj.animate({left:200px,top:300px})设置obj对象动画移动到指定位置
+       
+        // 自制动画移动利用定时器
+        // function myshow()
+        // {
+        //     $("button").text("显示");
+        // }
+        // function myhide()
+        // {
+        //     $("button").text("隐藏");
+        // }
+        // $("button").click(myanimate);
+        // n=0;
+        // timerid=0;
+        // left=20;
+        // top=20;
+        // function myanimate()
+        // {
+        //     n=0;
+        //     timerid=setInterval(mymove, 100);
+        //     left=20;
+        //     up=20;
+        // }
+        // function mymove()
+        // {
+        //     n++;
+        //     left+=20;
+        //     up+=20;
+        //     console.log(up);
+        //     $("#div4").css("top",up+"px");
+        //     $("#div4").css("left",left+"px");
+        //     if(n>=10)
+        //     {
+        //         clearInterval(timerid);
+        //     }
+        // }
+
+        
+
+
+        
+
+
+
+
+
+
+    </script>
+</body>
+</html>

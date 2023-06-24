@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fieldset分组元素学习</title>
+    <style>
+        fieldset
+        {
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- fieldset 分组元素 用于包裹其他元素的 -->
+    <fieldset>
+        <!--legend 分组元素的标题元素 -->
+        <legend>控制页面背景色</legend>
+        <button id="r">红色</button>
+        <button id="g">绿色</button>
+        <button id="b">蓝色</button>
+    </fieldset>
+    <script>
+        btr=document.getElementById("r")
+        btg=document.getElementById("g")
+        btb=document.getElementById("b")
+        btr.onclick=function()
+        {
+            document.body.style.backgroundColor="#f00";
+        }
+        btg.onclick=function()
+        {
+            document.body.style.backgroundColor="#0f0";
+        }
+        btb.onclick=function()
+        {
+            document.body.style.backgroundColor="#00f";
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

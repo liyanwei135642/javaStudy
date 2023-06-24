@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueStudy</title>
+    <!-- Vue学习 再此处导入vue.js文档 
+        以 v- 开头的标签属性是Vue的指令 
+        不同的指令含义不同
+        v-model:在表单元素上创建双向数据绑定
+        v-bind:为HTML标签绑定属性值 
+        v-on:为HTML标签绑定事件
+        v-if v-else-if v-else:条件性渲染某元素 true为渲染 false不渲染
+        v-show:根据条件展示某元素
+        v-fot:列表渲染 遍历容器的元素过着对象的属性
+        -->
+    <script src="../js/vue.js"></script>
+</head>
+<body >
+   <div id="vue1"  style="text-align: center;">
+        <input id="h1" type="text" v-model="message">
+        <h1>{{message}}</h1>
+        <h1>{{test}}</h1>
+        <a v-bind:href="url" target="_blank">点击我</a>
+        <!-- v-bind可以省略不写 -->
+        <a :href="url" target="_blank">再点击我</a>
+        <!-- <input type="button" value="切换主题" v-on:click="click()">无参的话可以不带括号 v-on:可以用@替换-->
+        <input type="button" value="切换主题" @click="click">
+        年龄{{age}}经过判断是个
+        <span v-if="age<=20">年轻人</span>
+        <span v-else-if="age<=38">中年人</span>
+        <span v-else>老年人</span>
+        <span v-show="age==23">我是王者</span>
+
+        <div v-for="add in addrs">{{add}}</div>
+        <div v-for="(add, i) in addrs">{{i+1}}:{{add}}</div>
+   </div>
+    
+</body>
+<!-- 在此定于要被vue接管的区域以及模型 -->
+<script>
+    new Vue({
+        el:"#vue1",//表示被vue接管的区域是id="vue1"的标签区域
+        data:{
+            message:"MyVueTest!",
+            test:456,
+            url:"https://www.baidu.com",
+            age:35,
+            addrs:["李艳伟","北京","上海","天津","广州"]
+        },
+        methods: {
+            click:function(){
+                this.message="894651234789";
+            },
+        },
+        
+    });
+</script>
+</html>

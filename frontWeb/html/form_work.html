@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单作业</title>
+    <style>
+        form
+        {
+            width: 400px;
+            /* height: 400px; */
+            background-color: #aaa;
+            margin:0px auto;
+        }
+        label
+        {
+            width:88px;
+            display: inline-block;
+            text-align: right;
+            /* background-color: blue; */
+            padding: 5px;
+        }
+        .layout
+        {
+            height: 70px;
+            display: inline-block;
+            /* background-color: #f00; */
+        }
+        div
+        {
+            margin: 8px;
+            padding: 5px;
+        }
+        input
+        {
+            padding: 5px;
+        }
+        #zc
+        {
+            background-color: green;
+            border: 0px;
+            padding: 10px 65px;
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+    <form action="#">
+        <div>
+            <label for="email">*邮箱地址：</label>
+            <input type="text" id="email" name="email" placeholder="请输入邮箱">
+        </div>
+        <div>
+            <label for="password">*设置密码：</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <label class="layout"><br>*兴趣标签：<br><br></label>
+            <span class="layout">
+                <input type="checkbox" name="hobby" value="1">新闻
+                <input type="checkbox" name="hobby" value="2">娱乐
+                <input type="checkbox" name="hobby" value="3">文化
+                <input type="checkbox" name="hobby" value="4">体育c
+                <input type="checkbox" name="hobby" value="5">IT
+                <br><br>
+                <input type="checkbox" name="hobby" value="1">新闻
+                <input type="checkbox" name="hobby" value="2">娱乐
+                <input type="checkbox" name="hobby" value="3">文化
+                <input type="checkbox" name="hobby" value="4">体育c
+                <input type="checkbox" name="hobby" value="5">IT
+            </span>
+        </div>
+        <div>
+            <label for="verify">*验证码：</label>
+            <input type="text" id="verify" name="verify">
+        </div>
+        <div>
+            <label></label>
+            <input id="zc" type="submit" value="立即注册">
+        </div>
+        <div>
+            <label></label>
+            <a href="#">新浪网络使用协议</a>
+        </div>
+
+
+
+    </form>
+</body>
+</html>

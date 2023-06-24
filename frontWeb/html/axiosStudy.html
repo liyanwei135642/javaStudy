@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AxiosStudy</title>
+    <script src="../js/axios-0.18.0.js"></script>
+</head>
+<body style="text-align: center;">
+    <br><br><br><br>
+    <input type="button" value="获取数据" onclick="myGet()">
+    <br><br><br><br>
+    <input type="button" value="删除数据" onclick="myPost()">
+</body>
+<script>
+    function myGet(){
+        axios.get("http://yapi.smart-xwork.cn/mock/169327/emp/list").then(result=>{
+        console.log(result.data);
+    });
+    }
+
+    function myPost(){
+        axios.post("http://yapi.smart-xwork.cn/mock/169327/emp/deleteById","id=1").then(result=>{
+        console.log(result.data);
+    });
+    }
+
+
+
+
+
+</script>
+</html>

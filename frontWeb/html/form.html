@@ -1,0 +1,66 @@
+<!-- form 表单控件学习 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form 表单标签 重要！ 
+    用于与用户交互的标签 
+    可以向服务器提交数据 
+    表单控件里面可以放一个容器div
+    其中 action属性 用于设置要提交的服务器网址 # 代表当前网址服务器-->
+    <form action="#" style="text-align: center;">
+        <div>
+            <!-- label 提示标签 内联标签 可以一列一列的排列 for属性设置被提示控件的id -->
+            <label for="username">姓名：</label>
+            <!-- input 输入控件标签 用于用户输入信息的控件 type属性这是输入控件类型 id属性设置提示标签For的对象 name属性是提交数据时的关键字 placeholder属性占位符输入提示信息 readonly属性只读不能写 disabled属性不允许操作-->
+            <input readonly type="text" id="username" name="username" placeholder="请在此输入用户名">
+        </div>
+        <div>
+            <!-- label 提示标签 内联标签 可以一列一列的排列 for属性设置被提示控件的id -->
+            <label for="password">密码：</label>
+            <!-- input 输入控件标签 内联标签 用于用户输入信息的控件 type属性这是输入控件类型 id属性设置提示标签For的对象 -->
+            <input type="password" id="password" name="password" placeholder="请在此输入密码">
+        </div>
+        <div>
+            <!-- label 提示标签 内联标签 可以一列一列的排列 for属性设置被提示控件的id -->
+            <label for="level">学历：</label>
+            <!-- select 下拉列表控件标签 内联标签 id属性设置提示标签For的对象 name属性设置名字 -->
+            <select name="level" id="level">
+                <!-- option 下拉列表项标签 value属性设置提交数据时的内容 -->
+                <option value="1">小学</option>
+                <option value="2">中学</option>
+                <option value="3">大学</option>
+                <option value="4">博士</option>
+            </select>
+
+        </div>
+        <div>
+             <label for="">性别：</label>
+             <!-- radio 单选按钮输入类型 checked 被选中状态 -->
+             <input type="radio" value="1" name="sex" checked>男
+             <input type="radio" value="2" name="sex">女
+        </div>
+        <div>
+             <label for="">爱好：</label>
+             <!-- checkbox 多选框输入类型 checked 被选中状态 -->
+             <input type="checkbox" value="1" name="hobby">编程
+             <input type="checkbox" value="2" name="hobby">游戏
+        </div>
+        
+        <div>
+            <!-- textarea 多行文本框标签 -->
+            <textarea placeholder="多行文本输入框" name="text" id="text" cols="30" rows="10"></textarea>
+       </div>
+       <div>
+        <input type="submit" value="注册" name="request">
+        <input type="submit" value="登录" name="request">
+        <input type="reset" value="重置">
+       </div>
+    </form>
+</body>
+</html>

@@ -78,7 +78,7 @@ public class JFrameStudy extends JFrame implements ActionListener, MouseListener
         height=105;
         imageNumberArr=new int[rows][cols];
         random=new Random();
-        imageNumber=random.nextInt(0,15);
+        imageNumber=random.nextInt(15);
         order();
     }
 
@@ -176,8 +176,8 @@ public class JFrameStudy extends JFrame implements ActionListener, MouseListener
         {
             for(int j=0;j<cols;j++)
             {
-                int m=random.nextInt(0,rows);
-                int n=random.nextInt(0,cols);
+                int m=random.nextInt(rows);
+                int n=random.nextInt(cols);
                 int tmp=imageNumberArr[i][j];
                 imageNumberArr[i][j]=imageNumberArr[m][n];
                 imageNumberArr[m][n]=tmp;
@@ -234,7 +234,7 @@ public class JFrameStudy extends JFrame implements ActionListener, MouseListener
     }
 
     private void changeImage() {
-        imageNumber=random.nextInt(0,15);
+        imageNumber=random.nextInt(15);
         order();
         initImages();
         repaint();

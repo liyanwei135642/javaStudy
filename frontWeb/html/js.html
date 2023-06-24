@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript学习</title>
+    <style>
+        div
+        {
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+            border: 1px solid #f00;
+            margin-top: -1px;
+            font-size: 30px;
+            font-weight: 800;
+        }
+        input
+        {
+            width: 200px;
+            height: 50px;
+            /* 设置光标样式 手指pointer  */
+            cursor:auto;
+        }
+    </style>
+    
+</head>
+<script src="../js/test.js"></script>
+<body>
+    <!--Js代码按照顺序执行 可以出现在文档的任意位置
+    js 弹框函数 alert("弹框信息")
+    js 用户输入函数 prompt("提示信息")
+    js 控制台输出函数 console.log() 用于代码调试
+    js 输出html元素 document.write("<h1>HTML元素</h1>")会覆盖之前的文档流-->
+    <script>
+        // alert("我是顶部");
+        // mes=prompt("请输入信息：")
+        // console.log("输入的值是："+mes)
+    </script>
+    <div>
+        <!--注册单击事件用 onclick 属性
+            注册双击事件用 ondblclick 属性
+            注册鼠标移入事件用 onmouseover 属性
+            注册鼠标移出事件用 onmouseout 属性
+            注册鼠标移动事件用 onmousemove 属性
+            注册文档元素加载完毕事件用 onload 属性
+            注册文本框获取焦点事件用 onfocus 属性
+            注册文本框失去焦点事件用 onblur 属性
+            实时监听输入用 oninput 属性
+            输入内容改变或者元素状态改变时触发事件 onchange 属性
+            表单元素点击提交按钮后触发事件 onsubmit 属性  -->
+        <input id="bt1" ondblclick="alert('输入错误！')" type="button" value="点击">
+        <input onclick="document.write('已经清空')" type="button" value="清空">
+        <input onclick='mytest2("div1")' type="button" value="是否数字">
+    </div>
+    <div id="div1"></div>
+    <script>
+        // 获取html元素用 document.getElementById("元素id")
+        div1=document.getElementById("div1");
+        // 设置元素文本内容：用.innerText=......
+        a="我是变量"
+        div1.innerText=a;
+    </script>
+    <!-- 引入外部js代码 -->
+    <!-- <script src="../js/test.js"></script> -->
+    <!-- <div>
+        <script>
+            document.write(mes)
+        </script>
+    </div> -->
+</body>
+</html>
