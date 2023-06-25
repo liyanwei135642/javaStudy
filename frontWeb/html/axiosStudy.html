@@ -10,10 +10,16 @@
     <br><br><br><br>
     <input type="button" value="获取数据" onclick="myGet()">
     <br><br><br><br>
-    <input type="button" value="删除数据" onclick="myPost()">
+    <input type="button" value="删除数据" onclick="myGet2()">
 </body>
 <script>
     function myGet(){
+        axios.get("http://127.0.0.1:8080/json3").then(result=>{
+            console.log(result.data)
+    });
+    }
+
+    function myGet2(){
         axios.get("http://yapi.smart-xwork.cn/mock/169327/emp/list").then(result=>{
         console.log(result.data);
     });
@@ -24,7 +30,6 @@
         console.log(result.data);
     });
     }
-
 
 
 

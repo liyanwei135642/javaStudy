@@ -17,7 +17,7 @@
         xmlRequest=new XMLHttpRequest();
 
         //发送异步请求
-        xmlRequest.open("GET","http://yapi.smart-xwork.cn/mock/266264/getById?id=5");
+        xmlRequest.open("GET","http://127.0.0.1:8080/json");
         xmlRequest.send();
 
         //获取数据 readyState XMLHttpRequest 对象的属性 请求就绪状态
@@ -26,6 +26,7 @@
         // 2：请求已收到
         // 3：正在处理请求
         // 4：请求已完成且响应已就绪
+        //如果前端跨域异步请求数据 需要在后端方法上添加注解 @CrossOrigin 取消CORS跨域验证
         xmlRequest.onreadystatechange=function(){
             if(xmlRequest.readyState==4&&xmlRequest.status==200){
                 document.getElementById("div1").innerHTML=xmlRequest.responseText;
