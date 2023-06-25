@@ -119,7 +119,7 @@ public class TestWeb {
         User u=new User();
         u.setAge(19);
         u.setName("李彦伟");
-        u.setAddr(new Addr("山西","柳林"));了，
+        u.setAddr(new Addr("山西","柳林"));
         List<User> list=new ArrayList<>();
         list.add(u);
         list.add(u);
