@@ -414,3 +414,20 @@ HTTP协议概述：基于TCP协议 无状态
         Connection: keep-alive
 
         User{name = 李彦伟, age = 19, addr = Addr{province = 山西, city = 柳林}}
+
+    前后端开发结合
+        前端html js 等文件全部放在 resources/static 或者 resources/public 下面
+        浏览器访问前端静态页面时 不需要输入static之前的路径 会默认去static或者public下面去找
+
+
+    三层架构：将前后端数据请求响应以及逻辑处理和数据查询分为三层
+        Cottoller层：控制层 只负责 接收请求和响应数据
+        Service层：服务层(逻辑处理层) 只负责 逻辑处理
+        Dao层: 持久层(数据访问层) 只负责 数据的增删改查
+    创建cortoller包存放所有控制层代码
+    创建service包存放所有服务层代码
+    创建dao包存放所有持久层代码
+    创建utils包存放所有工具类代码
+    创建pojo包存放所有实体类代码
+
+

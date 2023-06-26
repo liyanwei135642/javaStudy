@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueTest</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="table">
+        <table  border="1" cellspacing="0" width="100%">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>成绩</th>
+                <th>等级</th>
+            </tr>
+            <tr v-for="(user, index) in users" align="center">
+                <th>{{index+1}}</th>
+                <th>{{user.name}}</th>
+                <th>{{user.age}}</th>
+                <th>{{user.sex}}</th>
+                <th>{{user.score}}</th>
+                <th v-if="user.score>=85">优秀</th>
+                <th v-else-if="user.score>=60">及格</th>
+                <th v-else style="color: red;">不及格</th>
+            </tr>
+        </table>
+    </div>
+</body>
+<script >
+    new Vue({
+        el:"#table",//表示被vue接管的区域是id="vue1"的标签区域
+        data:{
+            users:[ {name:"李彦伟",age:32,sex:1,score:78},
+                    {name:"李彦宏",age:23,sex:2,score:59},
+                    {name:"李宏伟",age:79,sex:1,score:95},
+                    {name:"李秉泽",age:28,sex:2,score:64}]
+        },
+        methods: {
+
+        }
+        
+    });
+</script>
+</html>

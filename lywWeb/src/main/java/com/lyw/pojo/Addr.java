@@ -1,4 +1,4 @@
-package com.lyw.web;
+package com.lyw.pojo;
 
 public class Addr {
     private String province;

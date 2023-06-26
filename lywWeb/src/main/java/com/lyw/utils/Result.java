@@ -1,4 +1,4 @@
-package com.lyw.web;
+package com.lyw.utils;
 
 public class Result<T> {
     //响应码1代表成功 0代表失败

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Element Axios Test</title>
+    <link rel="stylesheet" href="../css/element-ui-index.css">
+    <script src="../js/axios-0.18.0.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/element-ui-index.js"></script>
+    <style>
+        div {
+            color: rgb(89, 0, 255);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app" style="text-align: center;">
+        <br><br><br><br>
+        <input type="button" value="获取数据" v-on:click="getAll()">
+        <br><br><br><br>
+        <input type="button" value="新增数据" v-on:click="add()">
+        <br><br><br><br>
+        <el-table :data="tableData" style="width: 100%">
+            <el-table-column prop="id" label="编号" align="center">
+            </el-table-column>
+            <el-table-column prop="name" label="姓名" align="center">
+            </el-table-column>
+            <el-table-column prop="age" label="年龄" align="center">
+            </el-table-column>
+            <el-table-column prop="address" label="地址" align="center">
+            </el-table-column>
+            <el-table-column label="操作" align="center">
+                <template slot-scope="scope">
+                    <el-button @click="update(scope.row)" type="text" size="small">编辑</el-button>
+                    <el-button @click="deleteById(scope.row)" type="text" size="small">删除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+        <!-- 表单对话框 -->
+        <el-dialog title="添加学生" :visible.sync="dialogFormVisible">
+            <el-form :model="form">
+                <el-form-item label="编号" :label-width="formLabelWidth">
+                    <el-input v-model="form.id" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="姓名" :label-width="formLabelWidth">
+                    <el-input v-model="form.name" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="年龄" :label-width="formLabelWidth">
+                    <el-input v-model="form.age" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="地址" :label-width="formLabelWidth">
+                    <el-select v-model="form.address" placeholder="请选择地址">
+                        <el-option  value="上海"></el-option>
+                        <el-option value="北京"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="cancel()">取 消</el-button>
+                <el-button type="primary" @click="confirm()">确 定</el-button>
+            </div>
+        </el-dialog>
+    </div>
+</body>
+<script>
+    new Vue({
+
+        el: "#app",
+
+        data() {
+            return {
+                tableData: [],
+                dialogFormVisible: false,
+                form: {
+                    id:"",
+                    name:"",
+                    age:"",
+                    address:""
+                },
+                formLabelWidth: '120px',
+                configJson:{headers:{"Content-Type":"application/json"}}
+            }
+        },
+
+        mounted() {
+            // axios.get("http://127.0.0.1:8080/students/getAll").then((result) => {
+            //     this.tableData = result.data.data
+            // });
+        },
+
+        methods: {
+
+            cancel(){
+                this.form.id=""
+                this.form.name=""
+                this.form.age=""
+                this.form.address=""
+                this.dialogFormVisible=false
+            },
+
+            confirm(){
+                student={id:this.form.id,name:this.form.name,age:this.form.age,address:this.form.address}
+                student=JSON.stringify(student)
+                axios.post("http://127.0.0.1:8080/students/add",student,this.configJson).then((result) => {
+                    this.tableData=result.data.data
+                })
+                this.form.id=""
+                this.form.name=""
+                this.form.age=""
+                this.form.address=""
+                this.dialogFormVisible=false
+            },
+
+
+
+
+
+
+            getAll() {
+                axios.get("http://127.0.0.1:8080/students/getAll").then((result) => {
+                    this.tableData = result.data.data
+                });
+            },
+
+            update(row) {
+                this.form.id=row.id
+                this.form.name=row.name
+                this.form.age=row.age
+                this.form.address=row.address
+                this.dialogFormVisible=true            
+            },
+
+            add() {
+                this.dialogFormVisible=true
+            },
+
+            deleteById(row) {
+                path = "http://127.0.0.1:8080/students/deleteById/" + row.id
+                axios.get(path).then((result) => {
+                    this.tableData = result.data.data
+                });
+            },
+        },
+    })
+
+</script>
+
+</html>

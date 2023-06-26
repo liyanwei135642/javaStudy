@@ -41,6 +41,7 @@ git remote add javaStudy https://github.com/liyanwei135642/javaStudy.git ---添�
 git remote rm origin  ------删除已添加的远程仓库origin
 git push -u javaStudy master ------javaStudy 远程仓库名随便设置 master要上传的分支 -u 首次上传
 git push --force PythonStudy branch_name ------PythonStudy 远程仓库名随便设置 master要上传的分支 --force本地版本低于远程版本时强行推送
+git push --force javaStudy master
 push 上传密码失败 一共三次上传，第一次密码 第二次token 第三次还是token   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
 忘记token找回方法 setting->developer setting->person access token ->classic->全选
 git branch -a -----查看所有分支包括远程仓库分支
